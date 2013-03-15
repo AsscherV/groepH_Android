@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:padding="5dp" android:clickable="false">
+    <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_gravity="center">
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail:"
+                    android:id="@+id/textView" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_email" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Firstname:"
+                    android:id="@+id/textView2" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_firstName" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name:"
+                    android:id="@+id/textView4" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_name" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data Of Birth:"
+                    android:id="@+id/textView6" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_dateOfBirth" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phonenumber:"
+                    android:id="@+id/textView8" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_phoneNumber" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender:"
+                    android:id="@+id/textView1" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_gender" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Street:"
+                    android:id="@+id/textView10" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_street" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number:"
+                    android:id="@+id/textView10" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_number" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zipcode:"
+                    android:id="@+id/textView10" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_zipCode" android:layout_column="1"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="City:"
+                    android:id="@+id/textView10" android:layout_column="0"
+                    android:textStyle="bold" android:layout_marginRight="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_city" android:layout_column="1"/>
+        </TableRow>
+    </TableLayout>
+</FrameLayout>

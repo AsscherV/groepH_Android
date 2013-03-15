@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_gravity="center"
+            android:layout_margin="3dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_gravity="center" android:baselineAligned="false"
+                android:paddingLeft="10dp" android:paddingRight="10dp" android:paddingTop="10dp">
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:id="@+id/btn_infotrip"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Waypoints"
+                    android:id="@+id/btn_waypoints"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Costs"
+                    android:id="@+id/btn_costs"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Particpants"
+                    android:id="@+id/btn_participants"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Accessories"
+                    android:id="@+id/btn_accessories"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

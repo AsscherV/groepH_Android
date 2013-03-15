@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="15dp" android:background="#000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="151dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical" android:layout_marginBottom="80dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:id="@+id/textView" android:layout_gravity="left|center_vertical"
+                android:textColor="@android:color/darker_gray"/>
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:id="@+id/UserNameText" android:layout_gravity="center"
+                android:background="#ffffff"/>
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:id="@+id/textView1" android:layout_gravity="left|center_vertical"
+                android:textColor="@android:color/darker_gray" android:layout_marginTop="5px"/>
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:id="@+id/PasswordText" android:layout_gravity="left|center_vertical"
+                android:background="#ffffff"/>
+        <Button
+            android:id="@+id/Button_doRequest"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:text="@string/requestLogin" android:background="#d5d5d5" android:layout_marginTop="25dp"
+            android:layout_gravity="center"/>
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextView_Result" android:layout_gravity="left|center_vertical"/>
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ProgressBar" android:layout_gravity="center" android:indeterminate="false"
+                android:clickable="false"/>
+    </LinearLayout>
+
+</LinearLayout>
