@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+        <!--
 
 <FrameLayout
         android:layout_width="fill_parent"
@@ -21,8 +22,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:id="@+id/textView" android:layout_column="0"/>
+                    android:text="Title:"
+                    android:id="@+id/textView" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -38,8 +39,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:id="@+id/textView2" android:layout_column="0"/>
+                    android:text="Description:"
+                    android:id="@+id/textView2" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -55,8 +56,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Starttime"
-                    android:id="@+id/textView4" android:layout_column="0"/>
+                    android:text="Starttime:"
+                    android:id="@+id/textView4" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -72,8 +73,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Endtime"
-                    android:id="@+id/textView6" android:layout_column="0"/>
+                    android:text="Endtime:"
+                    android:id="@+id/textView6" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -89,8 +90,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Label"
-                    android:id="@+id/textView8" android:layout_column="0"/>
+                    android:text="Label:"
+                    android:id="@+id/textView8" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -106,8 +107,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Type"
-                    android:id="@+id/textView1" android:layout_column="0"/>
+                    android:text="Type:"
+                    android:id="@+id/textView1" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -123,8 +124,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Organiser"
-                    android:id="@+id/textView10" android:layout_column="0"/>
+                    android:text="Organiser:"
+                    android:id="@+id/textView10" android:layout_column="0" android:textStyle="bold"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -135,4 +136,124 @@
                     android:id="@+id/txt_Organiser" android:layout_column="0"/>
         </TableRow>
     </TableLayout>
+</FrameLayout>
+
+
+
+ -->
+
+
+
+
+
+
+
+
+<FrameLayout
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+android:padding="5dp" android:clickable="false">
+<TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_gravity="center">
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title:"
+                android:id="@+id/textView" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_title" android:layout_column="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description:"
+                android:id="@+id/textView2" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_description" android:layout_column="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Starttime:"
+                android:id="@+id/textView4" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Starttime" android:layout_column="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endtime:"
+                android:id="@+id/textView6" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Endtime" android:layout_column="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Label:"
+                android:id="@+id/textView8" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Label" android:layout_column="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type:"
+                android:id="@+id/textView1" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_type" android:layout_column="1"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_marginBottom="5dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Organiser:"
+                android:id="@+id/textView10" android:layout_column="0"
+                android:textStyle="bold" android:layout_marginRight="10dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Organiser" android:layout_column="1"/>
+    </TableRow>
+
+</TableLayout>
 </FrameLayout>

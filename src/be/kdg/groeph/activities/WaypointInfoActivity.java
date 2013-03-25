@@ -1,6 +1,7 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.qualcomm.QCARSamples.CloudRecognition.CloudReco;
  * Time: 21:43
  */
 public class WaypointInfoActivity extends Activity {
+    final Context context = this;
     Intent intent;
     String waypointId;
     @Override
@@ -81,7 +83,7 @@ public class WaypointInfoActivity extends Activity {
                     protected void onPostExecute(Waypoint result) {
 
                         //TODO: GUNTHABAR change the Activity
-                        Intent i = new Intent(getApplicationContext(), CloudReco.class);
+                        Intent i = new Intent(context, CloudReco.class);
 
                         i.putExtra("waypointTitle",result.getLabel());
                         i.putExtra("waypointDescription",result.getDescription());
@@ -89,7 +91,7 @@ public class WaypointInfoActivity extends Activity {
 
 
                         startActivity(i);
-                        finish();
+                        //finish();
 
                     }
 

@@ -1,6 +1,7 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import java.util.List;
  */
 public class TripParticipantsActivity extends Activity {
     private String path = "/rest/getParticipantsByTrip?tripId=";
+    final Context context = this;
 
     public List<TripUser> participatingUsers;
     ListView lv_participatingUsers;
@@ -116,17 +118,17 @@ public class TripParticipantsActivity extends Activity {
                 lv_arr = participatingUsers.toArray(new TripUser[0]);
 
                 if(lv_arr.length == 0){
-                    Intent intent = new Intent(getApplicationContext(), publicTripMenuActivity.class);
-                    intent.putExtra("tripId", getIntent().getExtras().getString("tripId"));
+                    Intent intent = new Intent(context, publicTripMenuActivity.class);
+                    intent.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId") + "");
+                    intent.putExtra("tripId", getIntent().getExtras().getString("tripId") + "");
                     intent.putExtra("tripTitle", getIntent().getExtras().getString("tripTitle"));
                     intent.putExtra("tripDescription", getIntent().getExtras().getString("tripDescription"));
                     intent.putExtra("tripStartTime", getIntent().getExtras().getString("tripStartTime"));
                     intent.putExtra("tripEndTime", getIntent().getExtras().getString("tripEndTime"));
                     intent.putExtra("tripTripType", getIntent().getExtras().getString("tripTripType"));
                     intent.putExtra("tripOrganiser", getIntent().getExtras().getString("tripOrganiser"));
-                    System.out.println("AAAA" + getIntent().getExtras().getString("tripOrganiser"));
                     startActivity(intent);
-                    finish();
+                    //finish();
                     Toast.makeText(getApplicationContext(), "No participants for this trip.", Toast.LENGTH_SHORT).show();
                 }else{
                     lv_participatingUsers.setAdapter(new ArrayAdapter<TripUser>(TripParticipantsActivity.this, android.R.layout.simple_list_item_1, lv_arr));

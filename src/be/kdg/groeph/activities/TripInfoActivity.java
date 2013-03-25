@@ -1,6 +1,7 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 import be.kdg.groeph.R;
@@ -13,6 +14,7 @@ import be.kdg.groeph.R;
  */
 public class TripInfoActivity extends Activity {
     String trip;
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

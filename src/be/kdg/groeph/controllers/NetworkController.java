@@ -1,9 +1,7 @@
 package be.kdg.groeph.controllers;
 
 import be.kdg.groeph.Globals;
-import be.kdg.groeph.model.Trip;
-import be.kdg.groeph.model.TripUser;
-import be.kdg.groeph.model.Waypoint;
+import be.kdg.groeph.model.*;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -38,12 +36,9 @@ public class NetworkController {
         }, path, Globals.connectTimeout, Globals.readTimeout));
     }
     public List<Waypoint> getWaypointsFromServer(String path) throws IOException {
-
-        System.out.println("GuntHa " + path);
         return dataParser.parseWaypoints(dataFetcher.getFromServer(new DataFetcher.ResponseHandler() {
             @Override
             public String handleResponse(InputStream input) throws IOException {
-                System.out.println("GuntHa " + input);
                 return IOUtils.toString(input);
             }
         }, path, Globals.connectTimeout, Globals.readTimeout));
@@ -67,5 +62,69 @@ public class NetworkController {
         }, path, Globals.connectTimeout, Globals.readTimeout));
     }
 
-	
+
+    public List<Accessory> getTripAccessoriesFromServer(String path) throws IOException{
+        return dataParser.parseAccessories(dataFetcher.getFromServer(new DataFetcher.ResponseHandler(){
+            @Override
+        public String handleResponse(InputStream input) throws IOException {
+                return IOUtils.toString(input);
+            }
+        }, path, Globals.connectTimeout, Globals.readTimeout));
+    }
+
+    public List<Cost> getCostsFromServer(String path) throws IOException {
+
+        System.out.println("GuntHasWorld -ntwcntrol " + path);
+        return dataParser.parseCosts(dataFetcher.getFromServer(new DataFetcher.ResponseHandler() {
+            @Override
+            public String handleResponse(InputStream input) throws IOException {
+
+                return IOUtils.toString(input);
+            }
+        }, path, Globals.connectTimeout, Globals.readTimeout));
+    }
+
+    public Double getToReceiveFromServer(String path) throws IOException {
+
+        return dataParser.parseToReceive(dataFetcher.getFromServer(new DataFetcher.ResponseHandler() {
+            String response;
+            @Override
+            public String handleResponse(InputStream input) throws IOException {
+                response = IOUtils.toString(input);
+                return response;
+            }
+        }, path, Globals.connectTimeout, Globals.readTimeout));
+    }
+
+    public Double getAverageCostsFromServer(String path) throws IOException {
+        return dataParser.parseAverageCost(dataFetcher.getFromServer(new DataFetcher.ResponseHandler() {
+            String response;
+            @Override
+            public String handleResponse(InputStream input) throws IOException {
+
+                try {
+                    response = IOUtils.toString(input);
+                    System.out.println("GunthaBar - AverageCost - NetwerkController " + response);
+
+
+                    return response;
+                } finally {
+                    System.out.println("GunthaBar - AverageCost - NetwerkController - finally " + response);
+
+                }
+            }
+        }, path, Globals.connectTimeout, Globals.readTimeout));
+    }
+
+
+    public Double getTotalCostsFromServer(String path) throws IOException {
+        return dataParser.parseTotalCost(dataFetcher.getFromServer(new DataFetcher.ResponseHandler() {
+            String response;
+            @Override
+            public String handleResponse(InputStream input) throws IOException {
+                response = IOUtils.toString(input);
+                return response;
+            }
+        }, path, Globals.connectTimeout, Globals.readTimeout));
+    }
 }

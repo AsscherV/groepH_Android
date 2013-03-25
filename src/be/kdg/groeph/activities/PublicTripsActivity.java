@@ -1,9 +1,11 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,7 +26,9 @@ import java.util.Locale;
  * Time: 15:11
  */
 public class PublicTripsActivity extends Activity {
-    private final String path = "/rest/publicTrips"; // url path: value for 1EUR in USD.
+    final Context context = this;
+
+    private final String path = "/rest/publicTrips";
 
     public List<Trip> publicTrips;
     ListView lv_publiceTrips;
@@ -40,10 +44,10 @@ public class PublicTripsActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Trip selectedTrip = publicTrips.get((int) l);
-                Intent intent = new Intent(getApplicationContext(), publicTripMenuActivity.class);
+                Intent intent = new Intent(context, publicTripMenuActivity.class);
 
 
-                intent.putExtra("tripId", selectedTrip.getId());
+                intent.putExtra("tripId", selectedTrip.getId() + "");
                 intent.putExtra("tripTitle", selectedTrip.getTitle());
                 intent.putExtra("tripDescription", selectedTrip.getDescription());
 
@@ -61,15 +65,16 @@ public class PublicTripsActivity extends Activity {
                     intent.putExtra("tripEndTime", sdf.format(selectedTrip.getEndTime()));
 
                 } else {
-                    intent.putExtra("tripStartTime", "noTimeSet");
+                    intent.putExtra("tripEndTime", "noTimeSet");
 
                 }
                 intent.putExtra("tripTripType", selectedTrip.getTripType().toString());
                 intent.putExtra("tripOrganiser", selectedTrip.getTripUser().getFirstName() + " " + selectedTrip.getTripUser().getLastName());
+                intent.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId")+"");
 //                intent.putExtra("tripLabel", selectedTrip.getLabels().get(0));
 
                 startActivity(intent);
-                finish();
+                //finish();
 
             }
         });
@@ -117,9 +122,9 @@ public class PublicTripsActivity extends Activity {
                 Trip[] lv_arr = {};
                 lv_arr = publicTrips.toArray(new Trip[0]);
                 if(lv_arr.length == 0){
-                    Intent i = new Intent(getApplicationContext(), MenuActivity.class);
+                    Intent i = new Intent(context, MenuActivity.class);
                     startActivity(i);
-                    finish();
+                    //finish();
                     Toast.makeText(getApplicationContext(), "No public trips available.", Toast.LENGTH_SHORT).show();
                 }else{
                     lv_publiceTrips.setAdapter(new ArrayAdapter<Trip>(PublicTripsActivity.this, android.R.layout.simple_list_item_1, lv_arr));

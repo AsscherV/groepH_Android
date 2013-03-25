@@ -5,48 +5,45 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import be.kdg.groeph.R;
 import be.kdg.groeph.controllers.NetworkController;
-import be.kdg.groeph.model.Trip;
+import be.kdg.groeph.model.Accessory;
+import be.kdg.groeph.model.TripUser;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created with IntelliJ IDEA.
  * User: glenn
- * Date: 15/03/13
- * Time: 10:39
+ * Date: 22/03/13
+ * Time: 11:52
  * To change this template use File | Settings | File Templates.
  */
-public class ParticipatedTripsActivity extends Activity {
-    private String path = "/rest/participatingTrips?tripUserEmail=";
+public class TripAccessoryActivity extends Activity {
     final Context context = this;
 
-    public List<Trip> participatingTrips;
-    ListView lv_participatingTrips;
+    private String path = "/rest/getAccessoriesByTrip?tripId=";
+
+    public List<Accessory> accessories;
+    ListView lv_accessories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.publictrips);
 
-        path += getIntent().getExtras().getString("tripUserEmail");
+        path += getIntent().getExtras().getString("tripId");
         getData(path);
-        lv_participatingTrips = (ListView) findViewById(R.id.publicTripsListView);
-        lv_participatingTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_accessories = (ListView) findViewById(R.id.publicTripsListView);
+        /*
+        lv_participatingUsers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Trip selectedTrip = participatingTrips.get((int) l);
-                Intent intent = new Intent(context, publicTripMenuActivity.class);
-
-
+                Trip selectedTrip = publicTrips.get((int) l);
+                Intent intent = new Intent(getApplicationContext(), publicTripMenuActivity.class);
                 intent.putExtra("tripId", selectedTrip.getId());
                 intent.putExtra("tripTitle", selectedTrip.getTitle());
                 intent.putExtra("tripDescription", selectedTrip.getDescription());
@@ -70,15 +67,14 @@ public class ParticipatedTripsActivity extends Activity {
 
                 intent.putExtra("tripTripType", selectedTrip.getTripType().toString());
                 intent.putExtra("tripOrganiser", selectedTrip.getTripUser().getFirstName() + " " + selectedTrip.getTripUser().getLastName());
-                intent.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId")+"");
-
 //                intent.putExtra("tripLabel", selectedTrip.getLabels().get(0));
 
                 startActivity(intent);
-                //finish();
+                finish();
 
             }
         });
+        */
 
         initViews();
 
@@ -89,7 +85,7 @@ public class ParticipatedTripsActivity extends Activity {
     }
 
     private void getData(final String path) {
-        new AsyncTask<Void, Void, List<Trip>>() {
+        new AsyncTask<Void, Void, List<Accessory>>() {
 
             private Exception exception = null;
 
@@ -100,40 +96,48 @@ public class ParticipatedTripsActivity extends Activity {
             }
 
             @Override
-            protected List<Trip> doInBackground(Void... params) {
-                List<Trip> trips = null;
+            protected List<Accessory> doInBackground(Void... params) {
+                List<Accessory> laccessories = null;
 
                 try {
-                    trips = new NetworkController().getPublicTripsFromServer(path);
+                    laccessories = new NetworkController().getTripAccessoriesFromServer(path);
                 } catch (Exception e) {
                     exception = e;
                 }
 
-                participatingTrips = trips;
-                return trips;
+                accessories = laccessories;
+                return laccessories;
             }
 
             @Override
-            protected void onPostExecute(List<Trip> result) {
+            protected void onPostExecute(List<Accessory> result) {
 
                 //TODO: add the data to the list
 
-                lv_participatingTrips = (ListView) findViewById(R.id.publicTripsListView);
+                lv_accessories = (ListView) findViewById(R.id.publicTripsListView);
 
-                Trip[] lv_arr = {};
-                lv_arr = participatingTrips.toArray(new Trip[0]);
+                Accessory[] lv_arr = {};
+                lv_arr = accessories.toArray(new Accessory[0]);
 
                 if(lv_arr.length == 0){
-                    Intent i = new Intent(context, MenuActivity.class);
-                    startActivity(i);
+                    Intent intent = new Intent(context, publicTripMenuActivity.class);
+                    intent.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId") + "");
+                    intent.putExtra("tripId", getIntent().getExtras().getString("tripId") + "");
+                    intent.putExtra("tripTitle", getIntent().getExtras().getString("tripTitle"));
+                    intent.putExtra("tripDescription", getIntent().getExtras().getString("tripDescription"));
+                    intent.putExtra("tripStartTime", getIntent().getExtras().getString("tripStartTime"));
+                    intent.putExtra("tripEndTime", getIntent().getExtras().getString("tripEndTime"));
+                    intent.putExtra("tripTripType", getIntent().getExtras().getString("tripTripType"));
+                    intent.putExtra("tripOrganiser", getIntent().getExtras().getString("tripOrganiser"));
+                    startActivity(intent);
                     //finish();
-                    Toast.makeText(getApplicationContext(), "No participating trips available.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "No accessories for this trip.", Toast.LENGTH_SHORT).show();
                 }else{
-                    lv_participatingTrips.setAdapter(new ArrayAdapter<Trip>(ParticipatedTripsActivity.this, android.R.layout.simple_list_item_1, lv_arr));
+                    lv_accessories.setAdapter(new ArrayAdapter<Accessory>(TripAccessoryActivity.this, android.R.layout.simple_list_item_1, lv_arr));
                 }
-
             }
 
         }.execute();
+
     }
 }

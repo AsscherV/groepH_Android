@@ -31,7 +31,7 @@
             <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="Particpants"
+                    android:text="Participants"
                     android:id="@+id/btn_participants"/>
             <Button
                     android:layout_width="fill_parent"

@@ -17,13 +17,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:id="@+id/textView" android:layout_gravity="left|center_vertical"
+                android:id="@+id/textView" android:layout_gravity="center_vertical|left"
                 android:textColor="@android:color/darker_gray"/>
         <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
                 android:id="@+id/UserNameText" android:layout_gravity="center"
-                android:background="#ffffff"/>
+                android:background="#ffffff" android:inputType="textEmailAddress"/>
         <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
                 android:id="@+id/PasswordText" android:layout_gravity="left|center_vertical"
-                android:background="#ffffff"/>
+                android:background="#ffffff" android:inputType="textPassword" android:password="true"/>
         <Button
             android:id="@+id/Button_doRequest"
             android:layout_width="fill_parent"

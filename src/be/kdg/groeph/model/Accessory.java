@@ -72,4 +72,9 @@ public class Accessory implements Serializable {
     public void setChecked(boolean checked) {
         isChecked = checked;
     }
+
+    @Override
+    public String toString() {
+        return description + " Users: " + tripUsers;
+    }
 }

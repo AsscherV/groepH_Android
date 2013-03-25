@@ -1,6 +1,7 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -15,17 +16,8 @@ import be.kdg.groeph.R;
  * Time: 13:13
  */
 public class MenuActivity extends Activity {
+    final Context context = this;
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(i);
-            finish();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +30,9 @@ public class MenuActivity extends Activity {
             public void onClick(View v) {
 
                 //TODO: invalidate the sesison
-                Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent i = new Intent(context,LoginActivity.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -49,10 +41,11 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                //TODO: invalidate the sesison
-                Intent i = new Intent(getApplicationContext(),PublicTripsActivity.class);
+                Intent i = new Intent(context,PublicTripsActivity.class);
+                i.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId") + "");
+
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -61,11 +54,12 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                //TODO: invalidate the sesison
-                Intent i = new Intent(getApplicationContext(),OrganizedTripsActivity.class);
+                Intent i = new Intent(context,OrganizedTripsActivity.class);
                 i.putExtra("tripUserEmail",getIntent().getExtras().getString("tripUserEmail"));
+                i.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId") + "");
+
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -74,8 +68,7 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                //TODO: invalidate the sesison
-                Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+                Intent i = new Intent(context,ProfileActivity.class);
                 i.putExtra("tripUserEmail",getIntent().getExtras().getString("tripUserEmail"));
                 i.putExtra("tripUserFirstName",getIntent().getExtras().getString("tripUserFirstName"));
                 i.putExtra("tripUserName",getIntent().getExtras().getString("tripUserName"));
@@ -87,7 +80,7 @@ public class MenuActivity extends Activity {
                 i.putExtra("tripUserZip",getIntent().getExtras().getString("tripUserZip"));
                 i.putExtra("tripUserCity",getIntent().getExtras().getString("tripUserCity"));
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -95,10 +88,12 @@ public class MenuActivity extends Activity {
         participatingTripsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(getApplicationContext(),ParticipatedTripsActivity.class);
+                Intent i = new Intent(context,ParticipatedTripsActivity.class);
                 i.putExtra("tripUserEmail",getIntent().getExtras().getString("tripUserEmail"));
+                i.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId")+"");
+
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 

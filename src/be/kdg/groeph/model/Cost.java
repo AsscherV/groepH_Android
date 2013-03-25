@@ -68,4 +68,14 @@ public class Cost {
     public void setTripUser(TripUser tripUser) {
         this.tripUser = tripUser;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("CostName: ");
+        sb.append(getText());
+        sb.append(" ,CostValue: ");
+        sb.append(getCostValue());
+        return sb.toString();
+    }
 }

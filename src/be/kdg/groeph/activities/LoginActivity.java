@@ -1,6 +1,7 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import be.kdg.groeph.R;
 import be.kdg.groeph.controllers.NetworkController;
 import be.kdg.groeph.model.TripUser;
+import be.kdg.groeph.util.SHAEncryption;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -21,6 +23,8 @@ import java.util.Date;
 public class LoginActivity extends Activity {
 
     private final String path = "/rest/login?Username="; // url path: value for 1EUR in USD.
+    final Context context = this;
+
 
 
     private ProgressBar progressbar;
@@ -83,7 +87,8 @@ public class LoginActivity extends Activity {
             protected void onPostExecute(TripUser result) {
                 if (exception == null && result != null) {
 
-                    Intent i = new Intent(getApplicationContext(), MenuActivity.class);
+                    Intent i = new Intent(context, MenuActivity.class);
+                    i.putExtra("tripUserId", result.getEmail());
                     i.putExtra("tripUserEmail",result.getEmail());
                     i.putExtra("tripUserFirstName",result.getFirstName());
                     i.putExtra("tripUserName",result.getLastName());
@@ -97,8 +102,9 @@ public class LoginActivity extends Activity {
                     i.putExtra("tripUserZip",result.getAddress().getZipcode());
                     i.putExtra("tripUserCity",result.getAddress().getCity());
 
+
                     startActivity(i);
-                    finish();
+                    //finish();
                     //TODO: Add the cookie to a session I guess
 
 

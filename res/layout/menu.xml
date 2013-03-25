@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-        android:orientation="vertical"
+<FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="#000000">
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_gravity="center"
+            android:layout_margin="3dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_gravity="center" android:baselineAligned="false"
+                android:paddingLeft="10dp" android:paddingRight="10dp" android:paddingTop="10dp">
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Organized Trips"
+                    android:id="@+id/btn_MyTrips"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Participating Trips"
+                    android:id="@+id/btn_participatingTrips"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Public Trips"
+                    android:id="@+id/btn_Trips"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:id="@+id/btn_Profile"/>
+            <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:id="@+id/btn_Logout"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
+
+
+
+ <!--
     <Button
             android:layout_width="fill_parent"
             android:layout_height="30dp"
@@ -14,7 +54,7 @@
     <Button
             android:layout_width="fill_parent"
             android:layout_height="29dp"
-            android:text="Private trips"
+            android:text="Participating Trips"
             android:id="@+id/btn_participatingTrips" android:background="#d5d5d5" android:layout_marginBottom="20dp"/>
     <Button
             android:layout_width="fill_parent"
@@ -35,3 +75,5 @@
             android:id="@+id/btn_Logout" android:layout_gravity="center" android:background="#d5d5d5"
             />
 </LinearLayout>
+
+  -->

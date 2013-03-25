@@ -1,7 +1,10 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.TextView;
 import be.kdg.groeph.R;
 
@@ -14,10 +17,12 @@ import be.kdg.groeph.R;
  */
 public class ProfileActivity extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+
 
         TextView txt_email = (TextView) findViewById(R.id.txt_email);
         txt_email.setText(getIntent().getExtras().getString("tripUserEmail"));

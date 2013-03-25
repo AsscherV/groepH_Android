@@ -1,6 +1,7 @@
 package be.kdg.groeph.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import java.util.Locale;
  */
 public class OrganizedTripsActivity extends Activity {
     private String path = "/rest/organizedTrips?tripUserEmail=";
+    final Context context = this;
 
     public List<Trip> organizedTrips;
     ListView lv_organizedTrips;
@@ -42,7 +44,7 @@ public class OrganizedTripsActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Trip selectedTrip = organizedTrips.get((int) l);
-                Intent intent = new Intent(getApplicationContext(), publicTripMenuActivity.class);
+                Intent intent = new Intent(context, publicTripMenuActivity.class);
 
 
                 intent.putExtra("tripId", selectedTrip.getId());
@@ -67,10 +69,12 @@ public class OrganizedTripsActivity extends Activity {
 
                 intent.putExtra("tripTripType", selectedTrip.getTripType().toString());
                 intent.putExtra("tripOrganiser", selectedTrip.getTripUser().getFirstName() + " " + selectedTrip.getTripUser().getLastName());
+                intent.putExtra("tripUserId", getIntent().getExtras().getString("tripUserId")+"");
+
 //                intent.putExtra("tripLabel", selectedTrip.getLabels().get(0));
 
                 startActivity(intent);
-                finish();
+                //finish();
 
             }
         });
@@ -120,9 +124,9 @@ public class OrganizedTripsActivity extends Activity {
                 lv_organizedTrips.setAdapter(new ArrayAdapter<Trip>(OrganizedTripsActivity.this, android.R.layout.simple_list_item_1, lv_arr));
 
                 if(lv_arr.length == 0){
-                    Intent i = new Intent(getApplicationContext(), MenuActivity.class);
+                    Intent i = new Intent(context, MenuActivity.class);
                     startActivity(i);
-                    finish();
+                    //finish();
                     Toast.makeText(getApplicationContext(), "No organized trips available.", Toast.LENGTH_SHORT).show();
                 }else{
                     lv_organizedTrips.setAdapter(new ArrayAdapter<Trip>(OrganizedTripsActivity.this, android.R.layout.simple_list_item_1, lv_arr));
